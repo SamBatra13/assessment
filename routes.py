@@ -1,11 +1,15 @@
 from flask import Blueprint
 from flask_restful import Api, Resource
 
-from modules.message_processor.routes import message_processor_blueprint
+from modules.department.route import department_blueprint
+from modules.doctor.route import doctor_blueprint
+from modules.patient.route import patient_blueprint
 
 
 api_blueprint = Blueprint('api', __name__)
-api_blueprint.register_blueprint(message_processor_blueprint)
+api_blueprint.register_blueprint(department_blueprint)
+api_blueprint.register_blueprint(doctor_blueprint)
+api_blueprint.register_blueprint(patient_blueprint)
 api = Api(api_blueprint)
 
 
